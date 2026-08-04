@@ -39,7 +39,13 @@ function createClient() {
 }
 
 function createRepository(client: ReturnType<typeof createClient>): PrismaUserRepository {
-  return new PrismaUserRepository({ client } as unknown as DatabaseConnection);
+  const connection: DatabaseConnection = {
+    client: client as unknown as DatabaseConnection['client'],
+    connect: jest.fn().mockResolvedValue(undefined),
+    close: jest.fn().mockResolvedValue(undefined),
+  };
+
+  return new PrismaUserRepository(connection);
 }
 
 describe('PrismaUserRepository', () => {
