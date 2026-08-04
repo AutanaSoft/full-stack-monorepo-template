@@ -15,7 +15,7 @@
       "dependsOn": ["^format"]
     },
     "typecheck": {
-      "dependsOn": ["^build", "^typecheck"]
+      "dependsOn": ["^build", "^typecheck", "db:generate"]
     },
     "dev": {
       "cache": false,
@@ -29,7 +29,7 @@
       "dependsOn": ["^build"]
     },
     "test:e2e": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["build", "^build"]
     },
     "db:generate": {
       "dependsOn": ["^db:generate"],
