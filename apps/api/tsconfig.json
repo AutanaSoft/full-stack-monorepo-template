@@ -1,0 +1,8 @@
+{
+  "extends": "@autanasoft/typescript-config/nestjs.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "types": ["node", "jest"]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "skill_name": "nestjs-e2e-practices",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design the E2E test structure for a NestJS Fastify API with auth and users modules. The suite uses Jest, Prisma, and PostgreSQL. We need deterministic execution, real migrations, real login, and complete cleanup. Provide the file tree and key configuration/code excerpts.",
+      "expected_output": "A main Jest-discovered orchestrator registers feature orchestrators and endpoint suites, uses a dedicated Jest E2E config, creates an isolated migrated database, starts the production-like app, authenticates through HTTP, and owns deterministic teardown.",
+      "expectations": [
+        "Defines one main orchestrator and feature orchestrators",
+        "Provides a file tree with support, fixtures, feature orchestrators, contexts, and endpoint suites",
+        "Configures Jest to discover only the main orchestrator",
+        "Treats maxWorkers or runInBand as defensive rather than ordering",
+        "Uses a real isolated PostgreSQL database and committed migrations",
+        "Obtains authentication through a real HTTP endpoint",
+        "Assigns global cleanup to the main orchestrator"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Review a NestJS forgot-password E2E suite that mocks RequestPasswordResetService.execute so no email is sent. Explain what is wrong and show the correct boundary to replace while preserving real E2E behavior.",
+      "expected_output": "Reject mocking the application service, replace only the out-of-process mail transport/provider adapter, retain HTTP, validation, token generation, persistence, and application logic, and assert the captured outgoing email contract.",
+      "expectations": [
+        "Rejects mocking the password recovery application service",
+        "Overrides only the external mail transport or provider token",
+        "Keeps endpoint, application logic, token generation, and persistence real",
+        "Asserts the captured recipient and template or payload",
+        "States that provider deliverability is outside this E2E guarantee"
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Repair a NestJS users E2E suite where Jest discovers users.e2e-spec.ts and imported users-create.spec.ts, tests mutate one shared nested payload, and responses only assert status codes. Describe the minimal structural and assertion changes.",
+      "expected_output": "Use one discovered main orchestrator and non-discovered imported suites, derive fresh invalid payloads with nested copies, assert public response/error contracts and forbidden fields, and keep lifecycle ownership explicit.",
+      "expectations": [
+        "Detects duplicate Jest discovery of imported suites",
+        "Recommends a non-discovered suite suffix or path",
+        "Creates invalid payloads from fresh valid factories without nested mutation",
+        "Asserts response and error structure beyond status",
+        "Asserts sensitive fields are absent",
+        "Keeps application close out of endpoint suites"
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Write focused unit tests for a pure TypeScript currency formatter used by a NestJS application.",
+      "expected_output": "The nestjs-e2e-practices skill should not activate because this is a pure unit-testing task without an HTTP E2E boundary.",
+      "expectations": ["Does not recommend E2E orchestration or infrastructure for the unit test"],
+      "files": []
+    }
+  ]
+}

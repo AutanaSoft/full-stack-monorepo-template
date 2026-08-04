@@ -1,0 +1,49 @@
+{
+  "name": "@autanasoft/jest-config",
+  "version": "0.0.0",
+  "type": "commonjs",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/entry.js",
+  "types": "./dist/entry.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/entry.d.ts",
+      "import": "./dist/entry.js",
+      "require": "./dist/entry.js"
+    },
+    "./base": {
+      "types": "./dist/base.d.ts",
+      "import": "./dist/base.js",
+      "require": "./dist/base.js"
+    },
+    "./nest": {
+      "types": "./dist/nest.d.ts",
+      "import": "./dist/nest.js",
+      "require": "./dist/nest.js"
+    }
+  },
+  "peerDependencies": {
+    "@swc/jest": "^0.2.39",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0"
+  },
+  "peerDependenciesMeta": {
+    "jest-environment-jsdom": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}

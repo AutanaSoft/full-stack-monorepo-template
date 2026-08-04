@@ -1,0 +1,10 @@
+{
+  "extends": "@autanasoft/typescript-config/react-library.json",
+  "compilerOptions": {
+    "paths": {
+      "@autanasoft/ui/*": ["./src/*"]
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist"]
+}

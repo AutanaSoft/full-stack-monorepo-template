@@ -1,0 +1,65 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": ["DATABASE_URL"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "format": {
+      "dependsOn": ["^format"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build", "^typecheck"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "env": ["PORT", "DATABASE_URL"]
+    },
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "test:unit": {
+      "dependsOn": ["^build"]
+    },
+    "test:e2e": {
+      "dependsOn": ["^build"]
+    },
+    "db:generate": {
+      "dependsOn": ["^db:generate"],
+      "cache": false,
+      "env": ["DATABASE_URL"]
+    },
+    "db:validate": {
+      "dependsOn": ["^db:validate"],
+      "cache": false,
+      "env": ["DATABASE_URL"]
+    },
+    "db:migrate:dev": {
+      "dependsOn": ["^db:migrate:dev"],
+      "cache": false,
+      "env": ["DATABASE_URL"]
+    },
+    "db:migrate:deploy": {
+      "dependsOn": ["^db:migrate:deploy"],
+      "cache": false,
+      "env": ["DATABASE_URL"]
+    },
+    "db:push": {
+      "dependsOn": ["^db:push"],
+      "cache": false,
+      "env": ["DATABASE_URL"]
+    },
+    "db:seed": {
+      "dependsOn": ["^db:seed"],
+      "cache": false,
+      "env": ["DATABASE_URL"]
+    }
+  }
+}

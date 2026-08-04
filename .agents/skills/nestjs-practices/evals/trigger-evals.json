@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Organize the configuration of a NestJS application with clear ownership and application-context registration.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review our use of @nestjs/config, including ConfigModule.forRoot and namespaced configuration.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a typed payments configuration namespace with a registerAs factory.",
+    "should_trigger": true
+  },
+  {
+    "query": "Separate the configuration loaded by a NestJS API from the configuration loaded by a worker.",
+    "should_trigger": true
+  },
+  {
+    "query": "Validate the public options of a NestJS dynamic module in both forRoot and forRootAsync.",
+    "should_trigger": true
+  },
+  {
+    "query": "Prevent NestJS services from reading process.env directly and define the correct configuration boundary.",
+    "should_trigger": true
+  },
+  {
+    "query": "Configure externally managed secrets for a NestJS application without exposing them in logs or errors.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review how ConfigModule.forRoot should register namespaces for an HTTP application and a background worker.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write generic unit tests for a pure TypeScript currency formatter.",
+    "should_trigger": false
+  },
+  {
+    "query": "Configure Jest discovery so imported test suites do not execute twice.",
+    "should_trigger": false
+  },
+  {
+    "query": "Design an end-to-end test orchestrator with fixtures, authentication, and deterministic teardown.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create reusable E2E fixtures for a NestJS users API.",
+    "should_trigger": false
+  },
+  {
+    "query": "Manage the lifecycle of temporary databases used by integration tests.",
+    "should_trigger": false
+  },
+  {
+    "query": "Build a generic TypeScript library without any NestJS-specific architecture decision.",
+    "should_trigger": false
+  },
+  {
+    "query": "Configure Django settings and validate its environment variables.",
+    "should_trigger": false
+  },
+  {
+    "query": "Run black-box tests against a deployed API without access to its NestJS source or database.",
+    "should_trigger": false
+  }
+]

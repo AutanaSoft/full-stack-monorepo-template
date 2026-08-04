@@ -1,0 +1,55 @@
+{
+  "name": "@autanasoft/full-stack-monorepo-template",
+  "version": "0.0.1",
+  "description": "AutanaSoft full-stack monorepo template for Next.js, NestJS, shadcn/ui, and shared workspace tooling.",
+  "author": "AutanaSoft",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "keywords": [
+    "full-stack",
+    "monorepo",
+    "nestjs",
+    "nextjs",
+    "pnpm",
+    "postgresql",
+    "shadcn-ui",
+    "template",
+    "turborepo",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "db:generate": "turbo run db:generate",
+    "db:validate": "turbo run db:validate",
+    "db:migrate:dev": "turbo run db:migrate:dev",
+    "db:migrate:deploy": "turbo run db:migrate:deploy",
+    "db:push": "turbo run db:push",
+    "db:seed": "turbo run db:seed",
+    "lint": "turbo lint && pnpm lint:md",
+    "lint:md": "markdownlint-cli2 \"**/*.{md,mdx}\"",
+    "format": "turbo format && pnpm format:md",
+    "format:md": "prettier --write \"**/*.{md,mdx}\"",
+    "typecheck": "turbo typecheck",
+    "verify": "pnpm lint && pnpm typecheck && pnpm build && pnpm exec turbo run test:unit && pnpm exec turbo run test:e2e",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@autanasoft/eslint-config": "workspace:*",
+    "@autanasoft/typescript-config": "workspace:*",
+    "@commitlint/cli": "^21.2.1",
+    "@commitlint/config-conventional": "^21.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.2.0",
+    "markdownlint-cli2": "^0.22.1",
+    "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "turbo": "^2.9.18",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@10.33.4",
+  "engines": {
+    "node": ">=20"
+  }
+}

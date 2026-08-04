@@ -1,0 +1,14 @@
+{
+  "extends": "@autanasoft/typescript-config/base.json",
+  "include": ["src/**/*.ts", "test/**/*.ts", "prisma.config.ts", "prisma/seed/**/*.ts"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "types": ["node", "jest"],
+    "noEmit": true,
+    "strictNullChecks": true
+  }
+}
