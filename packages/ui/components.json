@@ -1,0 +1,26 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "base-nova",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/styles/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true
+  },
+  "iconLibrary": "lucide",
+  "aliases": {
+    "components": "@autanasoft/ui/components",
+    "utils": "@autanasoft/ui/lib/utils",
+    "hooks": "@autanasoft/ui/hooks",
+    "lib": "@autanasoft/ui/lib",
+    "ui": "@autanasoft/ui/components"
+  },
+  "rtl": false,
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {
+    "@acme": "https://acme.com/r/{name}.json"
+  }
+}

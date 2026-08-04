@@ -1,0 +1,27 @@
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  DISABLED
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model User {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  /// The application boundary must store this value trimmed and lowercase.
+  email        String     @unique
+  userName     String     @map("user_name")
+  passwordHash String     @map("password_hash")
+  createdAt    DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt    DateTime   @default(now()) @map("updated_at") @db.Timestamptz(6)
+  deletedAt    DateTime?  @map("deleted_at") @db.Timestamptz(6)
+  status       UserStatus @default(ACTIVE)
+  role         UserRole   @default(USER)
+  verifiedAt   DateTime?  @map("verified_at") @db.Timestamptz(6)
+
+  @@index([deletedAt])
+  @@map("users")
+}

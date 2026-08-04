@@ -1,0 +1,3 @@
+{
+  "extends": "@autanasoft/typescript-config/base.json"
+}

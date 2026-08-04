@@ -1,0 +1,36 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "description": "Next.js web application for the AutanaSoft full-stack monorepo template.",
+  "type": "module",
+  "private": true,
+  "author": "AutanaSoft",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev --port 4002",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@autanasoft/contracts": "workspace:*",
+    "@autanasoft/ui": "workspace:*",
+    "lucide-react": "^1.27.0",
+    "next": "16.2.6",
+    "next-themes": "^0.4.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@autanasoft/eslint-config": "workspace:^",
+    "@autanasoft/typescript-config": "workspace:*",
+    "eslint": "^9",
+    "typescript": "^5"
+  }
+}

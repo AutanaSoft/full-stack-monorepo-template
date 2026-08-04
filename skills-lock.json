@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "nestjs-best-practices": {
+      "source": "kadajett/agent-nestjs-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nestjs-best-practices/SKILL.md",
+      "computedHash": "58f8a630637be3acce1f118c747d68160346ada8a43d76cb52a5b4c4edaa2d37"
+    },
+    "nestjs-e2e-practices": {
+      "source": "AutanaSoft/skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript/nestjs-e2e-practices/SKILL.md",
+      "computedHash": "484cecc3f0115fffecb4a9b97af660d1160d1d456f8c9051cca5e77b6bb1bba7"
+    },
+    "nestjs-practices": {
+      "source": "AutanaSoft/skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript/nestjs-practices/SKILL.md",
+      "computedHash": "0fcc7a0bf6a279403b737cd11a8ca184630ee2fff1b8af3ccb72e0c42d6fc2fc"
+    },
+    "nextjs-practices": {
+      "source": "AutanaSoft/skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript/nextjs-practices/SKILL.md",
+      "computedHash": "8e5d3c70c3399254d8f3963ac67a8070e75f9735622932babc126977584a3ec0"
+    },
+    "shadcn": {
+      "source": "shadcn/ui",
+      "sourceType": "github",
+      "skillPath": "skills/shadcn/SKILL.md",
+      "computedHash": "c1a68ee06a668aced9ab2b5fbdea5f989864123794eb2e056b339a072dbb7f10"
+    },
+    "ts-general-practices": {
+      "source": "AutanaSoft/skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript/ts-general-practices/SKILL.md",
+      "computedHash": "73821ce18de5846b44e794b2aa56bf288ecdd3a164495a143c6ac7c95149e7d3"
+    },
+    "ts-zodv4-practices": {
+      "source": "AutanaSoft/skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript/ts-zodv4-practices/SKILL.md",
+      "computedHash": "6174b62103089a0ef5a904dddaf1e232e929987aa558487bb721079e40b590a9"
+    },
+    "vercel-react-best-practices": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-best-practices/SKILL.md",
+      "computedHash": "ca7b0c0c6e5f2750043f7f0cd72d16ac4e2abc48f9b5500d047a4b77a2506212"
+    }
+  }
+}

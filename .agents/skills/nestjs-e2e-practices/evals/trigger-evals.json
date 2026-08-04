@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Create real E2E tests for our NestJS Fastify auth module. Jest currently runs each spec separately, but I need a main orchestrator, feature suites, Prisma migrations, and a temporary PostgreSQL database.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review the NestJS users E2E suite: it shares tokens between files, closes Fastify in each spec, and sometimes fails depending on Jest order.",
+    "should_trigger": true
+  },
+  {
+    "query": "Our forgot-password E2E must exercise the real NestJS service and database without sending an actual email. Show where the test double belongs.",
+    "should_trigger": true
+  },
+  {
+    "query": "Configure Jest for a NestJS API so only test/main.e2e-spec.ts is discovered and imported endpoint suites cannot execute twice.",
+    "should_trigger": true
+  },
+  {
+    "query": "Add E2E coverage for POST /users including invalid nested payloads, duplicate email, authentication, response schemas, and passwordHash leakage.",
+    "should_trigger": true
+  },
+  {
+    "query": "Migrate our NestJS E2E tests from a shared development database to an isolated PostgreSQL database created and migrated per run.",
+    "should_trigger": true
+  },
+  {
+    "query": "Why does my NestJS E2E pass with --runInBand but fail with multiple Jest workers? Redesign lifecycle ownership instead of hiding the issue.",
+    "should_trigger": true
+  },
+  {
+    "query": "Audit whether our NestJS API E2E bootstrap really matches production pipes, filters, prefix, request IDs, and Fastify readiness.",
+    "should_trigger": true
+  },
+  {
+    "query": "Design E2E fixtures for NestJS auth that register and login through HTTP, using seeds only for an admin state not exposed by the API.",
+    "should_trigger": true
+  },
+  {
+    "query": "Fix leaked handles after our NestJS E2E run without enabling forceExit; the suite uses Prisma, Fastify, and a mail transport override.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write unit tests for a pure TypeScript currency formatter used inside a NestJS controller.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create repository integration tests for a Prisma unique index without starting NestJS or making HTTP requests.",
+    "should_trigger": false
+  },
+  {
+    "query": "Set up Playwright tests for a Next.js checkout page that calls a third-party API; there is no NestJS backend in this project.",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain how to organize providers and modules in a NestJS application using dependency injection.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create contract tests directly against the SendGrid sandbox to verify deliverability and bounce handling.",
+    "should_trigger": false
+  },
+  {
+    "query": "Mock every dependency of UsersService and test createUser in isolation with Jest.",
+    "should_trigger": false
+  },
+  {
+    "query": "Configure Vitest for a standalone TypeScript library that has no HTTP server or NestJS application.",
+    "should_trigger": false
+  },
+  {
+    "query": "Run Cypress against a deployed API as a black box; we do not have access to its NestJS source or database.",
+    "should_trigger": false
+  },
+  {
+    "query": "Add a Drizzle migration and test its generated SQL against PostgreSQL without booting the application.",
+    "should_trigger": false
+  },
+  {
+    "query": "Refactor NestJS configuration to validate environment variables with Zod and inject namespaced config.",
+    "should_trigger": false
+  }
+]

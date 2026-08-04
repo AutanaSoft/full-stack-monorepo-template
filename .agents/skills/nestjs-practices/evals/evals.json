@@ -1,0 +1,57 @@
+{
+  "skill_name": "nestjs-practices",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a typed payments configuration namespace for a NestJS application. Use a Zod schema, explicit defaults and overrides, a derived endpoint, one final validation of the complete object, a named exported factory, registerAs, a named registered constant, and a default export. Explain why the construction and registration steps stay separate. Do not require env.validation.ts or add testing guidance.",
+      "expected_output": "A complete namespace example with a named exported factory, final validation, explicit registerAs registration through a named constant, default export, TypeScript readonly typing, and no universal env.validation.ts or testing requirement.",
+      "expectations": [
+        "Exports a named paymentsConfigFactory that constructs the complete namespace.",
+        "Builds defaults, defined overrides, and derived values before one final schema parse.",
+        "Registers the named factory with registerAs under the payments namespace.",
+        "Assigns the registered namespace to paymentsConfig and exports it as the module default.",
+        "Expresses immutability with Readonly or readonly properties without using Zod .readonly() as the default pattern.",
+        "Does not require env.validation.ts or introduce unit, integration, or E2E testing rules."
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Design a NestJS PaymentsModule with forRoot and forRootAsync. Validate the public options before exposing the options provider, use one shared validator for both paths, keep input and validated output distinct, and expose a stable token. The validated contract should be read-only without requiring runtime freezing.",
+      "expected_output": "A dynamic module example that validates synchronous and asynchronous options at registration with the same validator, exposes only the validated read-only result through a stable token, and does not use Zod runtime freezing as a default.",
+      "expectations": [
+        "Validates forRoot input before creating or exposing the options provider.",
+        "Passes the resolved forRootAsync result through the same validator before exposure.",
+        "Keeps the accepted input type, validated result, and registered token distinct.",
+        "Uses Readonly in TypeScript types without using Zod .readonly() as the default schema pattern.",
+        "Does not repeat validation inside internal consumers."
+      ],
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Correct a NestJS configuration example that uses a hardcoded API-key fallback and prints the complete configuration when validation fails. Keep the external secret boundary, use a read-only TypeScript contract, and show a sanitized diagnostic while explaining how a project can preserve structured error causes.",
+      "expected_output": "A secret-safe configuration example with no usable credential default, no serialized configuration or process.env dump, a read-only TypeScript contract, and a sanitized error that does not discard required structured-cause handling.",
+      "expectations": [
+        "Removes the hardcoded or usable API-key fallback.",
+        "Does not log or serialize the secret, the namespace, or process.env wholesale.",
+        "Expresses the returned configuration contract with Readonly or readonly properties.",
+        "Reports only safe variable or constraint metadata in the simplified error.",
+        "States that the simplified error example is not a universal policy and that required causes must be preserved through sanitized diagnostics."
+      ],
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Define the boundary of a NestJS configuration catalog. Explain what config guidance covers and what it intentionally excludes when a request asks for generic unit tests, Jest discovery, E2E orchestration, fixtures, temporary test infrastructure, or black-box tests against a deployed API.",
+      "expected_output": "A self-contained scope statement covering configuration ownership, construction, validation, registration, injection, external sources, dynamic options, secrets, and safe diagnostics while excluding testing design and unrelated framework or black-box concerns.",
+      "expectations": [
+        "Describes the config domain without depending on the name or existence of another skill.",
+        "Excludes generic unit tests, Jest discovery, E2E orchestration, fixtures, and temporary test infrastructure.",
+        "Excludes black-box testing against a deployed API without NestJS source access.",
+        "Distinguishes runtime configuration validation from test strategy."
+      ],
+      "files": []
+    }
+  ]
+}

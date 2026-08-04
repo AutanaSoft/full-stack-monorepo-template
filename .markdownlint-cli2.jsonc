@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/v0.22.0/schema/markdownlint-cli2-config-schema.json",
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD024": {
+      "siblings_only": true,
+    },
+    "MD026": {
+      "punctuation": ".,;:",
+    },
+    "MD033": {
+      "allowed_elements": ["br", "details", "summary"],
+    },
+    "MD036": false,
+    "MD046": {
+      "style": "fenced",
+    },
+    // Product strategy and prompt documents intentionally contain multiple top-level sections.
+    "MD025": false,
+    "MD060": {
+      "style": "aligned",
+    },
+  },
+  "gitignore": true,
+  "ignores": [".agents/**", ".claude/**", ".git/**", "apps/api/README.md", "**/verify-report.md"],
+}
