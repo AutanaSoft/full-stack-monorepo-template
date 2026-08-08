@@ -4,24 +4,24 @@
     "default": true,
     "MD013": false,
     "MD024": {
-      "siblings_only": true,
+      "siblings_only": true
     },
     "MD026": {
-      "punctuation": ".,;:",
+      "punctuation": ".,;:"
     },
     "MD033": {
-      "allowed_elements": ["br", "details", "summary"],
+      "allowed_elements": ["br", "details", "summary"]
     },
     "MD036": false,
     "MD046": {
-      "style": "fenced",
+      "style": "fenced"
     },
     // Product strategy and prompt documents intentionally contain multiple top-level sections.
     "MD025": false,
     "MD060": {
-      "style": "aligned",
-    },
+      "style": "aligned"
+    }
   },
   "gitignore": true,
-  "ignores": [".agents/**", ".claude/**", ".git/**", "apps/api/README.md", "**/verify-report.md"],
+  "ignores": [".agents/**", ".claude/**", ".git/**", "apps/api/README.md", "**/verify-report.md"]
 }
