@@ -1,5 +1,5 @@
 {
-  "name": "@autanasoft/full-stack-monorepo-template",
+  "name": "full-stack-monorepo-template",
   "version": "0.0.1",
   "description": "AutanaSoft full-stack monorepo template for Next.js, NestJS, shadcn/ui, and shared workspace tooling.",
   "author": "AutanaSoft",
