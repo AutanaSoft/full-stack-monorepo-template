@@ -67,7 +67,7 @@ describe('user use cases', () => {
         email: 'user@example.com',
         userName: 'User_Name',
         password: 'valid-password',
-      }),
+      })
     ).rejects.toMatchObject({ code: 'USER_EMAIL_CONFLICT' });
   });
 
@@ -107,7 +107,7 @@ describe('user use cases', () => {
     await expect(
       new UpdateUserUseCase(repository, createHasher()).execute(user.id, {
         userName: 'New_Name',
-      }),
+      })
     ).rejects.toMatchObject({ code: 'USER_NOT_FOUND' });
   });
 });

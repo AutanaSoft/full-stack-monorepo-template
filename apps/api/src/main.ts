@@ -38,7 +38,7 @@ function reportBootstrapFailure(error: unknown): void {
       : '';
 
   process.stderr.write(
-    `API bootstrap failed.${detail} Check environment configuration, database connectivity, and port availability.\n`,
+    `API bootstrap failed.${detail} Check environment configuration, database connectivity, and port availability.\n`
   );
   process.exitCode = 1;
 }

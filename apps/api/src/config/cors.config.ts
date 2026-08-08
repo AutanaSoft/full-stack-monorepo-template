@@ -35,25 +35,25 @@ export const CorsConfigSchema = z.strictObject({
   CORS_ENABLED: booleanFromEnvironment(DEFAULT_CORS_ENABLED),
   CORS_ORIGINS: z.preprocess(
     parseStringList,
-    z.array(corsOriginSchema).default(defaultCorsOrigins),
+    z.array(corsOriginSchema).default(defaultCorsOrigins)
   ),
   CORS_METHODS: z.preprocess(
     parseStringList,
     z
       .array(httpMethodSchema)
       .min(1, { error: 'must include at least one HTTP method' })
-      .default(defaultCorsMethods),
+      .default(defaultCorsMethods)
   ),
   CORS_ALLOWED_HEADERS: z.preprocess(
     parseStringList,
     z
       .array(headerNameSchema)
       .min(1, { error: 'must include at least one allowed header' })
-      .default(defaultCorsAllowedHeaders),
+      .default(defaultCorsAllowedHeaders)
   ),
   CORS_EXPOSED_HEADERS: z.preprocess(
     parseStringList,
-    z.array(headerNameSchema).default(defaultCorsExposedHeaders),
+    z.array(headerNameSchema).default(defaultCorsExposedHeaders)
   ),
   CORS_CREDENTIALS: booleanFromEnvironment(DEFAULT_CORS_CREDENTIALS),
   CORS_MAX_AGE_SECONDS: integerFromEnvironment(DEFAULT_CORS_MAX_AGE_SECONDS, 0),

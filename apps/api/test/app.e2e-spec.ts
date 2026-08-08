@@ -64,7 +64,7 @@ describe('AppController (e2e)', () => {
       .compile();
 
     app = configureApplication(
-      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions),
+      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions)
     );
     await app.init();
   });
@@ -96,7 +96,7 @@ describe('AppController (e2e)', () => {
       .useValue({ SWAGGER_ENABLED: false, SWAGGER_PATH: 'disabled-docs' })
       .compile();
     const disabledApp = configureApplication(
-      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions),
+      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions)
     );
 
     await disabledApp.init();
@@ -119,10 +119,10 @@ describe('AppController (e2e)', () => {
 
     expect(response.headers['access-control-allow-origin']).toBe(allowedOrigin);
     expect(response.headers['access-control-allow-methods']).toBe(
-      'GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS',
+      'GET,HEAD,POST,PUT,PATCH,DELETE,OPTIONS'
     );
     expect(response.headers['access-control-allow-headers']).toBe(
-      'content-type,authorization,x-request-id',
+      'content-type,authorization,x-request-id'
     );
     expect(response.headers['access-control-max-age']).toBe('600');
     expect(response.headers['access-control-allow-credentials']).toBe('true');
@@ -211,20 +211,20 @@ describe('AppController (e2e)', () => {
     const unknownBody = parseErrorResponse(unknownResponse);
 
     expect(invalidBody).toEqual(
-      expect.objectContaining({ statusCode: 400, code: 'VALIDATION_FAILED' }),
+      expect.objectContaining({ statusCode: 400, code: 'VALIDATION_FAILED' })
     );
     expect(notFoundBody).toEqual(
-      expect.objectContaining({ statusCode: 404, code: 'RESOURCE_NOT_FOUND' }),
+      expect.objectContaining({ statusCode: 404, code: 'RESOURCE_NOT_FOUND' })
     );
     expect(knownBody).toEqual(
-      expect.objectContaining({ statusCode: 404, code: 'RESOURCE_NOT_FOUND' }),
+      expect.objectContaining({ statusCode: 404, code: 'RESOURCE_NOT_FOUND' })
     );
     expect(unknownBody).toEqual(
       expect.objectContaining({
         statusCode: 500,
         code: 'INTERNAL_ERROR',
         message: 'An unexpected error occurred.',
-      }),
+      })
     );
     expect(JSON.stringify(unknownBody)).not.toMatch(/SQL|secret|internal\/path|stack/i);
   });
@@ -249,7 +249,7 @@ describe('Rate limiting (e2e)', () => {
 
   function createRateLimitSettings(
     enabled: boolean,
-    max: number,
+    max: number
   ): ConfigType<typeof rateLimitConfig> {
     return {
       RATE_LIMIT_ENABLED: enabled,
@@ -260,7 +260,7 @@ describe('Rate limiting (e2e)', () => {
   }
 
   function createAppSettings(
-    trustProxy: ConfigType<typeof appConfig>['TRUST_PROXY'],
+    trustProxy: ConfigType<typeof appConfig>['TRUST_PROXY']
   ): ConfigType<typeof appConfig> {
     return {
       NODE_ENV: 'test',
@@ -273,7 +273,7 @@ describe('Rate limiting (e2e)', () => {
 
   async function createRateLimitApplication(
     settings: ConfigType<typeof rateLimitConfig>,
-    trustProxy: ConfigType<typeof appConfig>['TRUST_PROXY'] = false,
+    trustProxy: ConfigType<typeof appConfig>['TRUST_PROXY'] = false
   ): Promise<INestApplication<App>> {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule, RateLimitFixtureModule],
@@ -287,7 +287,7 @@ describe('Rate limiting (e2e)', () => {
       .compile();
 
     const testApp = configureApplication(
-      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions),
+      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions)
     );
     await testApp.init();
     return testApp;

@@ -42,9 +42,9 @@ const SENSITIVE_OBJECT_ROOTS = [
 const nestedSensitivePaths = SENSITIVE_OBJECT_ROOTS.flatMap((root) =>
   SENSITIVE_FIELDS.flatMap((field) =>
     [0, 1, 2, 3].map(
-      (depth) => `${root}${depth === 0 ? '' : `.${'*.'.repeat(depth).slice(0, -1)}`}.${field}`,
-    ),
-  ),
+      (depth) => `${root}${depth === 0 ? '' : `.${'*.'.repeat(depth).slice(0, -1)}`}.${field}`
+    )
+  )
 );
 
 export const REDACTION_PATHS = [
@@ -95,13 +95,13 @@ export interface PinoHttpOptions {
   customSuccessObject: (
     request: IncomingMessage,
     response: ServerResponse,
-    value: unknown,
+    value: unknown
   ) => Record<string, unknown>;
   customErrorObject: (
     request: IncomingMessage,
     response: ServerResponse,
     error: Error,
-    value: unknown,
+    value: unknown
   ) => Record<string, unknown>;
   customLogLevel: typeof selectHttpLogLevel;
   quietReqLogger: boolean;
@@ -168,7 +168,7 @@ export function createHttpLogObject(
   response: ServerResponse,
   value: unknown,
   includeClientIp: boolean,
-  error?: Error,
+  error?: Error
 ): Record<string, unknown> {
   const logObject: Record<string, unknown> = {
     method: request.method,
@@ -200,7 +200,7 @@ export function createHttpLogObject(
 export function selectHttpLogLevel(
   _request: IncomingMessage,
   response: ServerResponse,
-  error?: Error,
+  error?: Error
 ): 'error' | 'warn' | 'info' {
   if (error !== undefined || response.statusCode >= 500) {
     return 'error';
@@ -243,7 +243,7 @@ export function prepareLogDestinations(config: ApiLoggerConfig): LogDestinationP
     prepareLogFile(paths.errors);
   } catch {
     throw new Error(
-      'Unable to prepare logging destinations. Check LOG_DIRECTORY and log file permissions.',
+      'Unable to prepare logging destinations. Check LOG_DIRECTORY and log file permissions.'
     );
   }
 
@@ -260,7 +260,7 @@ function fileTransportTarget(): string {
 
 export function createLoggerTransport(
   logger: ApiLoggerConfig,
-  app: ApiAppConfig,
+  app: ApiAppConfig
 ): LoggerOptions['transport'] {
   const targets: Array<{
     target: string;
@@ -293,7 +293,7 @@ export function createLoggerTransport(
         target: fileTransportTarget(),
         level: 'error',
         options: { destination: paths.errors, level: ERROR_LOG_LEVEL },
-      },
+      }
     );
   }
 
@@ -338,13 +338,13 @@ export function createPinoHttpOptions(logger: ApiLoggerConfig, app: ApiAppConfig
     customSuccessObject: (
       request: IncomingMessage,
       response: ServerResponse,
-      value: unknown,
+      value: unknown
     ): Record<string, unknown> => createHttpLogObject(request, response, value, includeClientIp),
     customErrorObject: (
       request: IncomingMessage,
       response: ServerResponse,
       error: Error,
-      value: unknown,
+      value: unknown
     ): Record<string, unknown> =>
       createHttpLogObject(request, response, value, includeClientIp, error),
     customLogLevel: selectHttpLogLevel,

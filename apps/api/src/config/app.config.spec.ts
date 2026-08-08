@@ -30,7 +30,7 @@ describe('API app configuration', () => {
         API_PREFIX: 'v1',
         API_VERSION: '2',
         TRUST_PROXY: '2',
-      }),
+      })
     ).toMatchObject({
       NODE_ENV: 'test',
       API_PREFIX: 'v1',
@@ -62,7 +62,7 @@ describe('API app configuration', () => {
       appConfigFactory({
         PORT: '4003',
         CUSTOM_ENV: 'ignored by the namespace',
-      }),
+      })
     ).toMatchObject({ PORT: 4003 });
   });
 });

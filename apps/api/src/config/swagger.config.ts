@@ -21,7 +21,7 @@ export type SwaggerConfig = z.infer<typeof SwaggerConfigSchema>;
 
 export const swaggerConfigFactory = (env: EnvironmentInput = process.env): SwaggerConfig =>
   SwaggerConfigSchema.parse(
-    selectEnvironment(prepareEnvironmentInput(env), swaggerEnvironmentKeys),
+    selectEnvironment(prepareEnvironmentInput(env), swaggerEnvironmentKeys)
   );
 
 export default registerAs<SwaggerConfig>('swaggerConfig', swaggerConfigFactory);

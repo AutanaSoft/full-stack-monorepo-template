@@ -99,7 +99,7 @@ export class LoggerLifecycle implements OnApplicationShutdown {
     private readonly config: ConfigType<typeof loggerConfig>,
     @Inject(appConfig.KEY)
     private readonly applicationConfig: ConfigType<typeof appConfig>,
-    private readonly logger: PinoLogger,
+    private readonly logger: PinoLogger
   ) {}
 
   async onApplicationShutdown(): Promise<void> {

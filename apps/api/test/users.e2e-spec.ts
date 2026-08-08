@@ -63,7 +63,7 @@ function assertNoContentResponse(response: SupertestResponse): void {
 
 async function createUsersE2EContext(
   app: INestApplication<App>,
-  suffix: string,
+  suffix: string
 ): Promise<UsersE2EContext> {
   const credentials = {
     ...createValidUserPayload(suffix),
@@ -197,7 +197,7 @@ describe('Users HTTP endpoints (e2e)', () => {
     assertPublicError(response.body, 404, 'RESOURCE_NOT_FOUND');
     (await httpApp.resolve(PinoLogger)).warn(
       { requestId: 'logger-lifecycle-test' },
-      'Logger lifecycle test',
+      'Logger lifecycle test'
     );
     await new Promise<void>((resolve) => setImmediate(resolve));
   });
@@ -225,7 +225,7 @@ describe('Users HTTP endpoints (e2e)', () => {
       }),
     ]);
     expect(parsedList.pagination).toEqual(
-      expect.objectContaining({ page: 1, total: 1, totalPages: 1 }),
+      expect.objectContaining({ page: 1, total: 1, totalPages: 1 })
     );
     parsedList.data.forEach((user) => {
       expect(user).not.toHaveProperty('password');
@@ -237,7 +237,7 @@ describe('Users HTTP endpoints (e2e)', () => {
 
     const search = await request(httpApp.getHttpServer())
       .get(
-        `/api/v1/users/search?userName=${encodeURIComponent(usersContext.credentials.userName.toLowerCase())}`,
+        `/api/v1/users/search?userName=${encodeURIComponent(usersContext.credentials.userName.toLowerCase())}`
       )
       .expect(200);
     const searched = assertPublicUser(search.body);

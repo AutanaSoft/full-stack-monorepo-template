@@ -66,7 +66,7 @@ async function createGuard(storage: ThrottlerStorage): Promise<RateLimitGuard> {
 function createContext(
   handler: () => string,
   classReference: object,
-  response: { header: jest.Mock },
+  response: { header: jest.Mock }
 ): ExecutionContext {
   return {
     switchToHttp: () => ({
@@ -102,7 +102,7 @@ describe('application rate-limit decorators', () => {
     const response = { header: jest.fn() };
 
     await expect(guard.canActivate(createContext(handler, classReference, response))).resolves.toBe(
-      true,
+      true
     );
 
     expect(increment).toHaveBeenCalledWith(expect.any(String), ttl, limit, ttl, 'default');
@@ -123,8 +123,8 @@ describe('application rate-limit decorators', () => {
       guard.canActivate(
         createContext(BypassFixtureController.prototype.bypass, BypassFixtureController, {
           header: jest.fn(),
-        }),
-      ),
+        })
+      )
     ).resolves.toBe(true);
 
     expect(increment).not.toHaveBeenCalled();

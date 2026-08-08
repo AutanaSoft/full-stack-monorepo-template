@@ -17,7 +17,7 @@ import { USER_REPOSITORY } from '../users.tokens';
 export class CreateUserUseCase {
   constructor(
     @Inject(USER_REPOSITORY) private readonly repository: UserRepository,
-    @Inject(PASSWORD_HASHER) private readonly passwordHasher: PasswordHasher,
+    @Inject(PASSWORD_HASHER) private readonly passwordHasher: PasswordHasher
   ) {}
 
   async execute(input: CreateUser): Promise<PublicUser> {

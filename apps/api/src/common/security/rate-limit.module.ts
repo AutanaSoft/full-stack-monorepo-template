@@ -8,7 +8,7 @@ import rateLimitConfig from '../../config/rate-limit.config';
 import { getIpTracker, RateLimitGuard } from './rate-limit.guard';
 
 export function createRateLimitOptions(
-  config: ConfigType<typeof rateLimitConfig>,
+  config: ConfigType<typeof rateLimitConfig>
 ): ThrottlerModuleOptions {
   if (config.RATE_LIMIT_TRACKER !== 'ip') {
     throw new Error('Unsupported rate-limit tracker. Only the IP tracker is implemented.');

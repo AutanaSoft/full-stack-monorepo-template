@@ -40,7 +40,7 @@ class ExactLevelFileTransport extends Writable {
   override _write(
     chunk: unknown,
     _encoding: BufferEncoding,
-    callback: (error?: Error | null) => void,
+    callback: (error?: Error | null) => void
   ): void {
     const text =
       typeof chunk === 'string'
@@ -77,7 +77,7 @@ class ExactLevelFileTransport extends Writable {
 
   private writeMatchingLines(
     lines: readonly string[],
-    callback: (error?: Error | null) => void,
+    callback: (error?: Error | null) => void
   ): void {
     let index = 0;
 

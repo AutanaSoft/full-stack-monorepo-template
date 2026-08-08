@@ -22,7 +22,7 @@ export function setupSwagger(app: INestApplication): OpenAPIObject | undefined {
       .setTitle(SWAGGER_TITLE)
       .setVersion(SWAGGER_VERSION)
       .setDescription(SWAGGER_DESCRIPTION)
-      .build(),
+      .build()
   );
   const cleanedDocument = cleanupOpenApiDoc(document);
 

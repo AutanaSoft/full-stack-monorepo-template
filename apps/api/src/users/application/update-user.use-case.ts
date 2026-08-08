@@ -17,7 +17,7 @@ import { userIdentityConflict, userNotFound } from './users.application-errors';
 export class UpdateUserUseCase {
   constructor(
     @Inject(USER_REPOSITORY) private readonly repository: UserRepository,
-    @Inject(PASSWORD_HASHER) private readonly passwordHasher: PasswordHasher,
+    @Inject(PASSWORD_HASHER) private readonly passwordHasher: PasswordHasher
   ) {}
 
   async execute(id: string, input: UpdateUser): Promise<PublicUser> {

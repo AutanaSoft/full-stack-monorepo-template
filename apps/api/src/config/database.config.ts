@@ -12,7 +12,7 @@ const databaseUrlSchema = z.preprocess(
     .url({ error: 'must be a valid PostgreSQL URL' })
     .refine((value) => /^postgres(?:ql)?:\/\//i.test(value), {
       error: 'must use the PostgreSQL URL scheme',
-    }),
+    })
 );
 
 export const DatabaseConfigSchema = z.strictObject({

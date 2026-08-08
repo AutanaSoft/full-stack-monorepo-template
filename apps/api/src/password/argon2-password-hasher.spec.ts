@@ -56,7 +56,7 @@ describe('Argon2PasswordHasher', () => {
         memoryCost: config.ARGON2_MEMORY_COST,
         timeCost: config.ARGON2_TIME_COST,
         parallelism: config.ARGON2_PARALLELISM,
-      }),
+      })
     );
   });
 
@@ -82,7 +82,7 @@ describe('Argon2PasswordHasher', () => {
     jest.mocked(argon2.verify).mockRejectedValue(new Error('native failure with sensitive data'));
 
     await expect(
-      hasher.verify('opaque-password', '$argon2id$v=19$m=8192,t=2,p=1$c2FsdA$aGFzaA'),
+      hasher.verify('opaque-password', '$argon2id$v=19$m=8192,t=2,p=1$c2FsdA$aGFzaA')
     ).rejects.toEqual(new PasswordHasherError());
   });
 

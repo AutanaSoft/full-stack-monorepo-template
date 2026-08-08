@@ -22,7 +22,7 @@ describe('API logger configuration', () => {
         LOG_WARN_FILE: 'warning.jsonl',
         LOG_ERROR_FILE: 'error.jsonl',
         REQUEST_ID_HEADER: ' X-Trace-Id ',
-      }),
+      })
     ).toEqual({
       LOG_LEVEL: 'warn',
       LOG_FILES_ENABLED: false,

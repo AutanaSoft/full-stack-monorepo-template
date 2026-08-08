@@ -13,7 +13,7 @@ const ARGON2_OPTIONS = {
 export class Argon2PasswordHasher implements PasswordHasher {
   constructor(
     @Inject(passwordConfig.KEY)
-    private readonly config: ConfigType<typeof passwordConfig>,
+    private readonly config: ConfigType<typeof passwordConfig>
   ) {}
 
   async hash(password: string): Promise<string> {

@@ -30,7 +30,7 @@ async function createHealthApplication(ping: DatabasePing): Promise<INestApplica
     .compile();
 
   const app = configureApplication(
-    moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions),
+    moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions)
   );
   await app.init();
   return app;

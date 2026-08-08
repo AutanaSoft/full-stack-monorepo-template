@@ -26,10 +26,10 @@ const loggerSettings = {
 describe('RateLimitGuard', () => {
   it('uses only Express req.ip and rejects an absent resolved IP', () => {
     expect(getIpTracker({ ip: '203.0.113.10', 'x-forwarded-for': '198.51.100.10' })).toBe(
-      '203.0.113.10',
+      '203.0.113.10'
     );
     expect(() => getIpTracker({ 'x-forwarded-for': '198.51.100.10' })).toThrow(
-      'Unable to resolve the client IP',
+      'Unable to resolve the client IP'
     );
   });
 

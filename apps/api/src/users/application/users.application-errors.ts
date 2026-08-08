@@ -11,6 +11,6 @@ export function userNotFound(): ApplicationError {
 export function userIdentityConflict(field: 'email' | 'userName'): ApplicationError {
   return new ApplicationError(
     field === 'email' ? USER_EMAIL_CONFLICT : USERNAME_CONFLICT,
-    field === 'email' ? 'The email is already in use.' : 'The user name is already in use.',
+    field === 'email' ? 'The email is already in use.' : 'The user name is already in use.'
   );
 }

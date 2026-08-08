@@ -30,13 +30,13 @@ const nodeEnvironmentSchema = z
   .pipe(
     z.enum(['development', 'test', 'production'], {
       error: 'must be development, test, or production',
-    }),
+    })
   )
   .default(DEFAULT_NODE_ENV);
 
 const trustProxySchema = z.preprocess(
   parseTrustProxy,
-  z.union([z.boolean(), z.number().int().min(0)]).default(DEFAULT_TRUST_PROXY),
+  z.union([z.boolean(), z.number().int().min(0)]).default(DEFAULT_TRUST_PROXY)
 );
 
 export const AppConfigSchema = z.strictObject({

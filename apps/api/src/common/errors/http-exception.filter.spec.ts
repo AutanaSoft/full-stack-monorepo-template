@@ -72,7 +72,7 @@ describe('HttpExceptionFilter', () => {
         code,
         path: '/api/v1/users',
         requestId: 'unit-error-request',
-      }),
+      })
     );
     expect(JSON.stringify(body)).not.toContain('secret');
   });
@@ -96,7 +96,7 @@ describe('HttpExceptionFilter', () => {
         statusCode: 500,
         code: 'INTERNAL_ERROR',
         message: 'An unexpected error occurred.',
-      }),
+      })
     );
     expect(JSON.stringify(body)).not.toContain('SQL');
     expect(loggerError).toHaveBeenCalledWith(
@@ -107,12 +107,12 @@ describe('HttpExceptionFilter', () => {
         statusCode: 500,
         code: 'INTERNAL_ERROR',
       },
-      'Unhandled HTTP exception',
+      'Unhandled HTTP exception'
     );
 
     const loggerPayload: unknown = loggerError.mock.calls[0]?.[0];
     expect(JSON.stringify(loggerPayload)).not.toMatch(
-      /SQL|secret|internal\/path|cause|stack|message/i,
+      /SQL|secret|internal\/path|cause|stack|message/i
     );
     expect(loggerPayload).not.toHaveProperty('err');
     expect(loggerPayload).not.toHaveProperty('message');

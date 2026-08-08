@@ -49,7 +49,7 @@ async function runPsql(databaseUrl: string, sql: string): Promise<void> {
       env: process.env,
       timeout: 30_000,
       maxBuffer: 1_000_000,
-    },
+    }
   );
 }
 
@@ -70,7 +70,7 @@ async function migrateSchema(databaseUrl: string): Promise<void> {
 }
 
 export async function createRealE2EApplication(
-  options: { logFilesEnabled?: boolean } = {},
+  options: { logFilesEnabled?: boolean } = {}
 ): Promise<RealE2EApplication> {
   const logFilesEnabled = options.logFilesEnabled ?? true;
   const originalEnvironment = { ...process.env };
@@ -114,7 +114,7 @@ export async function createRealE2EApplication(
 
     const moduleFixture = await Test.createTestingModule({ imports: [AppModule] }).compile();
     app = configureApplication(
-      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions),
+      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions)
     );
     await app.init();
 
@@ -135,7 +135,7 @@ export async function createRealE2EApplication(
         try {
           await runPsql(
             createAdminDatabaseUrl(activeDatabaseUrl),
-            `DROP DATABASE "${activeDatabaseName}"`,
+            `DROP DATABASE "${activeDatabaseName}"`
           );
         } finally {
           if (activeLogDirectory !== undefined) {
@@ -158,7 +158,7 @@ export async function createRealE2EApplication(
     if (baseDatabaseUrl !== undefined && databaseName !== undefined) {
       await runPsql(
         createAdminDatabaseUrl(baseDatabaseUrl),
-        `DROP DATABASE "${databaseName}"`,
+        `DROP DATABASE "${databaseName}"`
       ).catch(() => undefined);
     }
 

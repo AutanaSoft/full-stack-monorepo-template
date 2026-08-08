@@ -20,7 +20,7 @@ describe('API CORS configuration', () => {
         CORS_METHODS: 'get, POST,',
         CORS_ALLOWED_HEADERS: ' Content-Type, X-Request-Id, ',
         CORS_EXPOSED_HEADERS: ' X-Request-Id, ',
-      }),
+      })
     ).toMatchObject({
       CORS_ORIGINS: ['https://example.com', 'http://localhost:3000'],
       CORS_METHODS: ['GET', 'POST'],

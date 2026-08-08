@@ -5,10 +5,10 @@ describe('request ID helpers', () => {
     const generateRequestId = jest.fn(() => 'generated-id');
 
     expect(getRequestIdHeaderValue({ 'X-Request-ID': 'client-request-123' }, 'x-request-id')).toBe(
-      'client-request-123',
+      'client-request-123'
     );
     expect(
-      resolveRequestId({ 'X-Request-ID': 'client-request-123' }, 'x-request-id', generateRequestId),
+      resolveRequestId({ 'X-Request-ID': 'client-request-123' }, 'x-request-id', generateRequestId)
     ).toBe('client-request-123');
     expect(generateRequestId).not.toHaveBeenCalled();
   });
@@ -23,7 +23,7 @@ describe('request ID helpers', () => {
     const generateRequestId = jest.fn(() => 'generated-id');
 
     expect(resolveRequestId({ 'x-request-id': value }, 'x-request-id', generateRequestId)).toBe(
-      'generated-id',
+      'generated-id'
     );
     expect(generateRequestId).toHaveBeenCalledTimes(1);
   });

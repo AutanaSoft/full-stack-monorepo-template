@@ -83,7 +83,7 @@ describe('Swagger setup', () => {
     expect(document.openapi).toMatch(/^3\./);
     expect(document.paths[versionedFixturePath]).toBeDefined();
     expect(Object.keys(document.components.schemas)).toEqual(
-      expect.arrayContaining(['CreateUserFixtureDto', 'UserResponseFixtureDto_Output']),
+      expect.arrayContaining(['CreateUserFixtureDto', 'UserResponseFixtureDto_Output'])
     );
     expect(serializedDocument).not.toContain('selfRequired');
 

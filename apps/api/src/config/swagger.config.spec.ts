@@ -15,7 +15,7 @@ describe('API Swagger configuration', () => {
         NODE_ENV: 'production',
         SWAGGER_ENABLED: 'true',
         SWAGGER_PATH: 'openapi',
-      }),
+      })
     ).toEqual({ SWAGGER_ENABLED: true, SWAGGER_PATH: 'openapi' });
   });
 
@@ -23,6 +23,6 @@ describe('API Swagger configuration', () => {
     'rejects unsafe Swagger input: %p',
     (input) => {
       expect(() => SwaggerConfigSchema.parse(input)).toThrow();
-    },
+    }
   );
 });

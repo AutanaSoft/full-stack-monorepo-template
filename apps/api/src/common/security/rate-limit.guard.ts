@@ -35,7 +35,7 @@ export function getIpTracker(request: Record<string, unknown>): string {
 function resolveRequestId(
   request: RateLimitRequest,
   response: Response,
-  requestIdHeader: string,
+  requestIdHeader: string
 ): string {
   if (typeof request.id === 'string' && RequestIdSchema.safeParse(request.id).success) {
     return request.id;
@@ -72,7 +72,7 @@ function setRateLimitHeaders(response: Response, details: ThrottlerLimitDetail):
 export function createRateLimitErrorResponse(
   request: RateLimitRequest,
   response: Response,
-  requestIdHeader: string,
+  requestIdHeader: string
 ): ErrorResponse {
   return ErrorResponseSchema.parse({
     statusCode: HttpStatus.TOO_MANY_REQUESTS,
@@ -91,14 +91,14 @@ export class RateLimitGuard extends ThrottlerGuard {
     @InjectThrottlerStorage() storageService: ThrottlerStorage,
     reflector: Reflector,
     @Inject(loggerConfig.KEY)
-    private readonly loggingConfig: ConfigType<typeof loggerConfig>,
+    private readonly loggingConfig: ConfigType<typeof loggerConfig>
   ) {
     super(options, storageService, reflector);
   }
 
   protected throwThrottlingException(
     context: ExecutionContext,
-    throttlerLimitDetail: ThrottlerLimitDetail,
+    throttlerLimitDetail: ThrottlerLimitDetail
   ): Promise<void> {
     const request = context.switchToHttp().getRequest<RateLimitRequest>();
     const response = context.switchToHttp().getResponse<Response>();
@@ -107,7 +107,7 @@ export class RateLimitGuard extends ThrottlerGuard {
 
     throw new HttpException(
       createRateLimitErrorResponse(request, response, this.loggingConfig.REQUEST_ID_HEADER),
-      HttpStatus.TOO_MANY_REQUESTS,
+      HttpStatus.TOO_MANY_REQUESTS
     );
   }
 }

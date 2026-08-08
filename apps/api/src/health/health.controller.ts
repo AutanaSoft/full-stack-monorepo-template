@@ -15,7 +15,7 @@ export class HealthController {
     private readonly health: HealthCheckService,
     private readonly application: ApplicationHealthIndicator,
     private readonly database: DatabaseHealthIndicator,
-    @Inject(healthConfig.KEY) private readonly config: ConfigType<typeof healthConfig>,
+    @Inject(healthConfig.KEY) private readonly config: ConfigType<typeof healthConfig>
   ) {}
 
   private ensureEnabled(): void {

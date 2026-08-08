@@ -49,7 +49,7 @@ describe('configureApplication', () => {
       .compile();
 
     app = configureApplication(
-      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions),
+      moduleFixture.createNestApplication<INestApplication<App>>(applicationOptions)
     );
     await app.init();
   });

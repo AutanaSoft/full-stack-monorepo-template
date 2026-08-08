@@ -35,7 +35,7 @@ const logLevelSchema = z
   .pipe(
     z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal', 'silent'], {
       error: 'must be trace, debug, info, warn, error, fatal, or silent',
-    }),
+    })
   )
   .default(DEFAULT_LOG_LEVEL);
 

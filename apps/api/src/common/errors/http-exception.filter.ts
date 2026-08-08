@@ -28,7 +28,7 @@ function getRequestPath(request: ErrorRequest): string {
 function resolveRequestId(
   request: ErrorRequest,
   response: Response,
-  requestIdHeader: string,
+  requestIdHeader: string
 ): string {
   let requestId: string | undefined;
 
@@ -133,7 +133,7 @@ function createErrorResponse(
   details: { code: string; statusCode: number; message: string },
   request: ErrorRequest,
   response: Response,
-  requestIdHeader: string,
+  requestIdHeader: string
 ): ErrorResponse {
   return ErrorResponseSchema.parse({
     statusCode: details.statusCode,
@@ -150,7 +150,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
   constructor(
     private readonly logger: PinoLogger,
     @Inject(loggerConfig.KEY)
-    private readonly loggingConfig: ConfigType<typeof loggerConfig>,
+    private readonly loggingConfig: ConfigType<typeof loggerConfig>
   ) {}
 
   catch(exception: unknown, host: ArgumentsHost): void {
@@ -172,7 +172,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       details,
       request,
       response,
-      this.loggingConfig.REQUEST_ID_HEADER,
+      this.loggingConfig.REQUEST_ID_HEADER
     );
 
     if (body.statusCode >= 500) {
@@ -184,7 +184,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
           statusCode: body.statusCode,
           code: body.code,
         },
-        'Unhandled HTTP exception',
+        'Unhandled HTTP exception'
       );
     }
 

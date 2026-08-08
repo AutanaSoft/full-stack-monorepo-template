@@ -25,7 +25,7 @@ function pingWithTimeout(ping: () => Promise<void>, timeoutMs: number): Promise<
 export class DatabaseHealthIndicator {
   constructor(
     private readonly healthIndicator: HealthIndicatorService,
-    @Inject(DATABASE_PING) private readonly database: DatabasePing,
+    @Inject(DATABASE_PING) private readonly database: DatabasePing
   ) {}
 
   async check(): Promise<HealthIndicatorResult<'database'>> {

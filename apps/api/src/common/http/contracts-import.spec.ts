@@ -32,13 +32,13 @@ describe('contracts import boundary', () => {
 
     const fixtureSource = readFileSync(
       join(apiRoot, 'test', 'fixtures', 'zod-http.fixture.ts'),
-      'utf8',
+      'utf8'
     );
     expect(fixtureSource).toContain(`from '${contractPackage}'`);
 
     const contractsManifest = readFileSync(
       join(repositoryRoot, 'packages', 'contracts', 'package.json'),
-      'utf8',
+      'utf8'
     );
     expect(contractsManifest).toMatch(/"main":\s*"\.\/dist\/index\.js"/);
     expect(contractsManifest).toMatch(/"types":\s*"\.\/dist\/index\.d\.ts"/);

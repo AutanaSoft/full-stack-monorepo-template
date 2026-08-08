@@ -15,7 +15,7 @@ describe('API health configuration', () => {
         HEALTH_ENABLED: 'false',
         HEALTH_DISK_PATH: '/var/lib/api',
         HEALTH_DISK_THRESHOLD_PERCENT: '75',
-      }),
+      })
     ).toEqual({
       HEALTH_ENABLED: false,
       HEALTH_DISK_PATH: '/var/lib/api',

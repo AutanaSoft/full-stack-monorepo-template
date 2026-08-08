@@ -26,7 +26,7 @@ export const HealthConfigSchema = z.strictObject({
   HEALTH_DISK_THRESHOLD_PERCENT: integerFromEnvironment(
     DEFAULT_HEALTH_DISK_THRESHOLD_PERCENT,
     0,
-    100,
+    100
   ),
 });
 

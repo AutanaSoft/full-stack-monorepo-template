@@ -15,7 +15,7 @@ describe('API environment validation', () => {
       validEnvironment({
         NODE_ENV: 'test',
         CUSTOM_ENV: 'preserved',
-      }),
+      })
     );
 
     expect(result).toMatchObject({
@@ -36,7 +36,7 @@ describe('API environment validation', () => {
       validEnvironment({
         NODE_ENV: 'production',
         CORS_ORIGINS: 'https://example.com',
-      }),
+      })
     );
 
     expect(result).toMatchObject({
@@ -55,8 +55,8 @@ describe('API environment validation', () => {
           NODE_ENV: 'production',
           CORS_ORIGINS: 'https://example.com',
           SWAGGER_ENABLED: 'true',
-        }),
-      ).SWAGGER_ENABLED,
+        })
+      ).SWAGGER_ENABLED
     ).toBe(true);
   });
 
@@ -68,7 +68,7 @@ describe('API environment validation', () => {
     { LOG_WARN_FILE: 'same.log', LOG_ERROR_FILE: 'same.log' },
   ])('rejects unsafe cross-field environment settings: %p', (overrides) => {
     expect(() => validate(validEnvironment(overrides))).toThrow(
-      /Invalid environment configuration/,
+      /Invalid environment configuration/
     );
   });
 
@@ -88,7 +88,7 @@ describe('API environment validation', () => {
     { ARGON2_TIME_COST: '0' },
   ])('rejects malformed declared values: %p', (overrides) => {
     expect(() => validate(validEnvironment(overrides))).toThrow(
-      /Invalid environment configuration/,
+      /Invalid environment configuration/
     );
   });
 

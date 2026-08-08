@@ -15,7 +15,7 @@ describe('API password configuration', () => {
         ARGON2_MEMORY_COST: '8192',
         ARGON2_TIME_COST: '2',
         ARGON2_PARALLELISM: '1',
-      }),
+      })
     ).toEqual({
       ARGON2_MEMORY_COST: 8192,
       ARGON2_TIME_COST: 2,

@@ -22,7 +22,7 @@ export function isEnvironmentInput(value: unknown): value is EnvironmentInput {
 
 export function selectEnvironment(
   input: EnvironmentInput,
-  keys: readonly string[],
+  keys: readonly string[]
 ): Record<string, unknown> {
   return Object.fromEntries(keys.map((key) => [key, input[key]]));
 }
@@ -82,7 +82,7 @@ export function parseNumber(value: unknown): unknown {
 export function integerFromEnvironment(
   defaultValue: number,
   minimum: number,
-  maximum?: number,
+  maximum?: number
 ): z.ZodType<number> {
   let schema = z.number().int().min(minimum);
 
@@ -157,7 +157,7 @@ export const directoryPathSchema = z
 
       return value.split(/[\\/]+/).every((segment) => segment !== '..');
     },
-    { error: 'must not contain parent-directory traversal' },
+    { error: 'must not contain parent-directory traversal' }
   );
 
 export const httpMethodSchema = z
@@ -183,7 +183,7 @@ export const corsOriginSchema = z.union([
           url.password === ''
         );
       },
-      { error: 'must be a valid HTTP origin or *' },
+      { error: 'must be a valid HTTP origin or *' }
     )
     .transform((value) => (value.endsWith('/') ? value.slice(0, -1) : value)),
 ]);

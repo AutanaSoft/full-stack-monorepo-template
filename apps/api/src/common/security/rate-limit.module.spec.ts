@@ -19,7 +19,7 @@ const loggerSettings = {
 
 function createRateLimitSettings(
   enabled: boolean,
-  max: number,
+  max: number
 ): ConfigType<typeof rateLimitConfig> {
   return {
     RATE_LIMIT_ENABLED: enabled,
@@ -69,7 +69,7 @@ describe('RateLimitModule', () => {
     } as unknown as ConfigType<typeof rateLimitConfig>;
 
     expect(() => createRateLimitOptions(unsupportedConfig)).toThrow(
-      'Only the IP tracker is implemented',
+      'Only the IP tracker is implemented'
     );
   });
 

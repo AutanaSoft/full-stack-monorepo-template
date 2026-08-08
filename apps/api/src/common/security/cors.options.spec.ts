@@ -9,7 +9,7 @@ import { createCorsOptions } from './cors.options';
 const allowedOrigin = 'https://allowed.example.com';
 
 function makeCorsConfig(
-  overrides: Partial<ConfigType<typeof corsConfig>> = {},
+  overrides: Partial<ConfigType<typeof corsConfig>> = {}
 ): ConfigType<typeof corsConfig> {
   return {
     CORS_ENABLED: true,
@@ -75,7 +75,7 @@ describe('CORS options', () => {
 
   it('normalizes wildcard origins to the static wildcard accepted by cors', () => {
     const options = createCorsOptions(
-      makeCorsConfig({ CORS_ORIGINS: ['*', allowedOrigin], CORS_CREDENTIALS: false }),
+      makeCorsConfig({ CORS_ORIGINS: ['*', allowedOrigin], CORS_CREDENTIALS: false })
     );
 
     expect(options?.origin).toBe('*');

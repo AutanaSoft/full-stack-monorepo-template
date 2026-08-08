@@ -90,7 +90,7 @@ describe('Pino HTTP logger options', () => {
         level: 'info',
         redact: options.redact,
       },
-      output,
+      output
     );
 
     logger.info(
@@ -111,7 +111,7 @@ describe('Pino HTTP logger options', () => {
           params: { recovery: { recoveryCode: fakeSecret } },
         },
       },
-      'redaction test',
+      'redaction test'
     );
 
     const serialized = chunks.join('');
@@ -129,14 +129,14 @@ describe('Pino HTTP logger options', () => {
     (environment) => {
       const transport = createLoggerTransport(
         makeLoggerConfig(),
-        makeAppConfig({ NODE_ENV: environment }),
+        makeAppConfig({ NODE_ENV: environment })
       );
 
       expect(transport).toMatchObject({
         targets: [{ target: 'pino-pretty', level: 'trace' }],
         worker: { autoEnd: true },
       });
-    },
+    }
   );
 
   it('creates configured file destinations only when file logging is enabled', () => {
@@ -146,7 +146,7 @@ describe('Pino HTTP logger options', () => {
     try {
       const transport = createLoggerTransport(
         makeLoggerConfig({ LOG_DIRECTORY: directory }),
-        makeAppConfig(),
+        makeAppConfig()
       );
 
       expect(transport).toBeUndefined();
@@ -166,15 +166,15 @@ describe('Pino HTTP logger options', () => {
 
       expect(() =>
         prepareLogDestinations(
-          makeLoggerConfig({ LOG_DIRECTORY: join(blocked, fakeSecret), LOG_FILES_ENABLED: true }),
-        ),
+          makeLoggerConfig({ LOG_DIRECTORY: join(blocked, fakeSecret), LOG_FILES_ENABLED: true })
+        )
       ).toThrow('Unable to prepare logging destinations');
 
       let failure: unknown;
 
       try {
         prepareLogDestinations(
-          makeLoggerConfig({ LOG_DIRECTORY: join(blocked, fakeSecret), LOG_FILES_ENABLED: true }),
+          makeLoggerConfig({ LOG_DIRECTORY: join(blocked, fakeSecret), LOG_FILES_ENABLED: true })
         );
       } catch (error: unknown) {
         failure = error;

@@ -44,7 +44,7 @@ export class UsersController {
     private readonly getUser: GetUserUseCase,
     private readonly updateUser: UpdateUserUseCase,
     private readonly deleteUser: DeleteUserUseCase,
-    private readonly logger: PinoLogger,
+    private readonly logger: PinoLogger
   ) {}
 
   @Post()
@@ -67,7 +67,7 @@ export class UsersController {
   @ApiResponse({ status: 200, description: 'The paginated user list.' })
   async list(
     @Query() query: ListUsersQueryDto,
-    @Req() request: RequestWithId,
+    @Req() request: RequestWithId
   ): Promise<UserListResponse> {
     const result = await this.listUsers.execute(query);
     this.log(request, 'list', 'success');
@@ -91,7 +91,7 @@ export class UsersController {
   @ApiResponse({ status: 404, description: 'The user was not found.' })
   async search(
     @Query() query: FindUserQueryDto,
-    @Req() request: RequestWithId,
+    @Req() request: RequestWithId
   ): Promise<UserResponse> {
     const user = await this.findUser.execute(query);
     this.log(request, 'search', 'success', user.id);
@@ -106,7 +106,7 @@ export class UsersController {
   @ApiResponse({ status: 404, description: 'The user was not found.' })
   async get(
     @Param() params: UserIdParamsDto,
-    @Req() request: RequestWithId,
+    @Req() request: RequestWithId
   ): Promise<UserResponse> {
     const user = await this.getUser.execute(params.id);
     this.log(request, 'get', 'success', user.id);
@@ -124,7 +124,7 @@ export class UsersController {
   async update(
     @Param() params: UserIdParamsDto,
     @Body() input: UpdateUserDto,
-    @Req() request: RequestWithId,
+    @Req() request: RequestWithId
   ): Promise<UserResponse> {
     const user = await this.updateUser.execute(params.id, input);
     this.log(request, 'update', 'success', user.id);
@@ -149,7 +149,7 @@ export class UsersController {
         requestId: typeof request.id === 'string' ? request.id : undefined,
         ...(userId === undefined ? {} : { userId }),
       },
-      'User operation completed',
+      'User operation completed'
     );
   }
 }

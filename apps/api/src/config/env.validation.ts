@@ -32,7 +32,7 @@ export const EnvValidationSchema = z
     {
       error: 'production CORS requires at least one explicit non-wildcard origin when enabled',
       path: ['CORS_ORIGINS'],
-    },
+    }
   )
   .refine((config) => !config.CORS_CREDENTIALS || !config.CORS_ORIGINS.includes('*'), {
     error: 'CORS credentials cannot be enabled with a wildcard origin',

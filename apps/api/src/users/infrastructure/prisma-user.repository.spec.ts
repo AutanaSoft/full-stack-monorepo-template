@@ -24,15 +24,15 @@ function createClient() {
   return {
     user: {
       findFirst: jest.fn<Promise<typeof record | null>, [UserRepoArgs]>(() =>
-        Promise.resolve(record),
+        Promise.resolve(record)
       ),
       findMany: jest.fn<Promise<(typeof record)[]>, [UserRepoArgs]>(() =>
-        Promise.resolve([record]),
+        Promise.resolve([record])
       ),
       count: jest.fn<Promise<number>, [UserRepoArgs]>(() => Promise.resolve(1)),
       create: jest.fn<Promise<typeof record>, [UserRepoArgs]>(() => Promise.resolve(record)),
       updateMany: jest.fn<Promise<{ count: number }>, [UserRepoArgs]>(() =>
-        Promise.resolve({ count: 1 }),
+        Promise.resolve({ count: 1 })
       ),
     },
   };
@@ -97,7 +97,7 @@ describe('PrismaUserRepository', () => {
         skip: 10,
         take: 10,
         orderBy: { userName: 'asc' },
-      }),
+      })
     );
     expect(result).toMatchObject({ total: 1, page: 2, limit: 10, data: [record] });
   });
@@ -111,7 +111,7 @@ describe('PrismaUserRepository', () => {
         email: record.email,
         userName: record.userName,
         passwordHash: record.passwordHash,
-      }),
+      })
     ).rejects.toMatchObject({ name: 'UserIdentityConflictError', field: 'email' });
   });
 

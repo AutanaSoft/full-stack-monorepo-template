@@ -31,7 +31,7 @@ function isExpressApplication(value: unknown): value is ExpressApplicationLike {
 }
 
 export function configureApplication<TServer>(
-  app: INestApplication<TServer>,
+  app: INestApplication<TServer>
 ): INestApplication<TServer> {
   const config = app.get<ConfigType<typeof appConfig>>(appConfig.KEY);
   const corsSettings = app.get<ConfigType<typeof corsConfig>>(corsConfig.KEY);

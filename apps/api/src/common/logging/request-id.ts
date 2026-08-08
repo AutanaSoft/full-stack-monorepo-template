@@ -8,11 +8,11 @@ export type RequestIdHeaders = Readonly<Record<string, RequestIdHeaderValue>>;
 /** Returns the configured header value without accepting duplicate header values. */
 export function getRequestIdHeaderValue(
   headers: IncomingHttpHeaders | RequestIdHeaders,
-  headerName: string,
+  headerName: string
 ): RequestIdHeaderValue {
   const normalizedHeaderName = headerName.toLowerCase();
   const matchingHeaderName = Object.keys(headers).find(
-    (name) => name.toLowerCase() === normalizedHeaderName,
+    (name) => name.toLowerCase() === normalizedHeaderName
   );
 
   return matchingHeaderName === undefined ? undefined : headers[matchingHeaderName];
@@ -26,7 +26,7 @@ export function isValidRequestId(value: unknown): value is string {
 export function resolveRequestId(
   headers: IncomingHttpHeaders | RequestIdHeaders,
   headerName: string,
-  generateRequestId: () => string = randomUUID,
+  generateRequestId: () => string = randomUUID
 ): string {
   const candidate = getRequestIdHeaderValue(headers, headerName);
 
