@@ -11,7 +11,7 @@
     "./react-internal": "./react-internal.js"
   },
   "devDependencies": {
-    "@eslint/js": "^9",
+    "@eslint/js": "^10",
     "@next/eslint-plugin-next": "^16.2.6",
     "@typescript-eslint/eslint-plugin": "^8.60.0",
     "@typescript-eslint/parser": "^8.60.0",
@@ -23,8 +23,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-turbo": "^2.9.15",
     "globals": "^17.6.0",
-    "prettier": "^3.4.2",
-    "typescript": "^5",
+    "prettier": "^3.9.8",
+    "typescript": "^7",
     "typescript-eslint": "^8.60.0"
   }
 }

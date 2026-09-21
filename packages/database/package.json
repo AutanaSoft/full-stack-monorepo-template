@@ -38,11 +38,11 @@
     "@autanasoft/jest-config": "workspace:*",
     "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
-    "@types/node": "^22.10.7",
+    "@types/node": "^26.6.1",
     "@types/pg": "^8.20.3",
     "jest": "^30.2.0",
     "prisma": "7.9.1",
     "tsx": "^4.23.1",
-    "typescript": "^5.7.3"
+    "typescript": "^7.0.2"
   }
 }
