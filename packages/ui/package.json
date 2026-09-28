@@ -24,15 +24,15 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@turbo/gen": "^2.9.15",
-    "@types/node": "^20",
+    "@turbo/gen": "^2.11.4",
+    "@types/node": "^26",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@autanasoft/eslint-config": "workspace:*",
     "@autanasoft/typescript-config": "workspace:*",
-    "eslint": "^9",
+    "eslint": "^10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^7"
   },
   "exports": {
     "./globals.css": "./src/styles/globals.css",
