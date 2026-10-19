@@ -39,8 +39,8 @@
   "devDependencies": {
     "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
-    "@types/node": "^22.10.7",
-    "jest": "^30.2.0",
-    "typescript": "^5.7.3"
+    "@types/node": "^26.6.5",
+    "jest": "^30.5.2",
+    "typescript": "^7.0.2"
   }
 }
